@@ -17,14 +17,14 @@ The data is [described here](http://archive.ics.uci.edu/ml/datasets/Human+Activi
 The script also uses some command line tools (`sed` and `tr`) to convert the two largest data files into csv from their original fixed-width format. This allows us to more easily use `fread` when processing the data, which is tremendously faster than using, e.g., `read.table`.
 
 To acquire and prepare the data, from the command line run:  
-`bash get_data.sh`
+`$  bash get_data.sh`
 
 Note that I do not deal directly with the raw data in the `Inertial\ Signals` directories, rather I use the intermediate data products described in the `README.txt` file in the data directory.
 
 
 ###Reducing the data
 The R script `run_analysis.R` handles the data merging and reduction. It can be run from the command line in the same working directory that `get_data.sh` was run in:  
-`Rscript run_analysis.R`  
+`$  Rscript run_analysis.R`  
  Specifically, the data in `X_train.csv` and `X_test.csv` are imported as data tables and combined (with rbind). The activity codes in `y_train.txt` and `y_test.txt` and the subject identifiers in `subject_train.txt` and `subject_test.txt` are likewise combined, preserving row ordering. 
 
 A new column is created giving names to the activity identifiers, taken from `activity_labels.txt`. The 561 features in the combined X sample are named using the feature labels in `features.txt`. The subject IDs, activity codes and names, and variable observations are combined into a total dataset. This is then trimmed and analysed as described below.

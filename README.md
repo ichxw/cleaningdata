@@ -7,4 +7,4 @@ The files in this repo:
   * `get_data.sh` - a bash script to download and unzip the data. This also runs some command line commands to convert some of the data from fixed width to csv.
   * `run_analysis.R` - a R script that combines the data, trims to the desired variables, and reduces data subsets to mean values.
   * ` CodeBook.md` - a document describing the reduction process in more detail than this README.
-  
+  * `tidyData.csv` - a csv file containing the reduced dataset. The structure of the file and the variables that are included in it are described in `CodeBook.md`.  

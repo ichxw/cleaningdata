@@ -43,6 +43,5 @@ subData <- cbind(allSubject, allY, subX)
 meanData <- aggregate(subData,by=list(subData$SubjectID, subData$ActivityName),FUN=mean)
 ## re-attach activity names, add subject names, and trim for output
 meanData[5] <- meanData[2]
-addSubjectText = function(x){return(paste("Subject", as.character(x), sep="-"))}
-meanData[3]<-sapply(meanData[3], FUN=addSubjectText)
+meanData[3]<-sapply(meanData[3], FUN=function(x) paste("Subject", as.character(x), sep="-"))
 write.csv(meanData[3:ncol(meanData)], file="tidyData.csv", row.names=FALSE)
